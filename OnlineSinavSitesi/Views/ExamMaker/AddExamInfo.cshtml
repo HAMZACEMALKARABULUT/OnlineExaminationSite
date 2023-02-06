@@ -1,0 +1,244 @@
+﻿@model User
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Ninestars/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <style>
+
+        #div {
+            position: relative;
+            top: 72px;
+            height: 760px;
+            background: #cce1ff;
+            padding: 100px;
+        }
+
+        #div1 {
+            position: relative;
+            height: 75px;
+            background: #44A6C8;
+        }
+
+        #div2 {
+            display: flex;
+            justify-content: space-between;
+            background: #0e5084;
+        }
+
+        #head {
+            height: 100px;
+            transition: all 0.5s;
+            z-index: 997;
+            transition: all 0.5s;
+            background: #44A6C8;
+        }
+
+            #head .logo h1 {
+                font-size: 30px;
+                margin: 0;
+                line-height: 1;
+                font-weight: 400;
+                letter-spacing: 2px;
+            }
+
+                #head .logo h1 a,
+                #head .logo h1 a:hover {
+                    color: #7a6960;
+                    text-decoration: none;
+                }
+
+            #head .logo img {
+                padding: 0;
+                margin: 0;
+                max-height: 40px;
+            }
+
+        #main {
+            margin-top: 72px;
+        }
+
+    </style>
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <!-- Vendor CSS Files -->
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+    <link href="~/Ninestars/assets/css/style.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body id="arkaplan">
+
+    <header id="head" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div>
+                <h1 class="text-light">
+                    <a>
+                        <span>
+
+                            <h5>
+                                Sınav Bilgilerini Ekleme Sayfası
+                            </h5>
+
+            </div>
+
+            <nav id="navbar" class="navbar">
+
+
+                <li><a class="getstarted scrollto" href="">Soruları Ekleme Sayfasına geç</a></li>
+
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+        </div>
+
+
+    </header>
+
+
+
+
+
+
+
+    <div id="div2">
+        <div id="div">
+
+            <h4>Sınavın temel bilgilerini giriniz .</h4>
+            <br />
+            <br />
+
+            <form asp-action="CreateExam" asp-controller="ExamMaker" method="post" role="form">
+
+                <input type="hidden" value="@Model.Id" name="CreatorId"/>
+                <label>Sınav Başlığını - İsmini giriniz : </label> <br />
+                <input type="text" autocomplete="on" placeholder="Sınav ismi " name="LessonName" required />
+
+                <br />
+
+                <hr width="50%" size="0">
+                <hr width="50%" size="0">
+                <hr width="50%" size="0">
+                <fieldset>
+                    <p>Sınav süresi:</p>
+                    <br />
+                    <select name="Time">
+
+                        <option value="10">10 dakika</option>
+
+                        <option value="20">20 dakika</option>
+
+                        <option value="30">30 dakika</option>
+
+                        <option value="40">40 dakika</option>
+
+                        <option value="50">50 dakika</option>
+
+                        <option value="60">1 SAAT</option>
+                        <option value="70">1 saat 10 dakika</option>
+                        <option value="80">1 saat 20 dakika</option>
+                        <option value="90">1 saat 30 dakika</option>
+                        <option value="100">1 saat 40 dakika</option>
+                        <option value="110">1 saat 50 dakika</option>
+                        <option value="120">2 SAAT</option>Ü
+                        <option value="130">2 saat 10 dakika</option>
+                        <option value="140">2 saat 20 dakika</option>
+                        <option value="150">2 saat 30 dakika</option>
+                        <option value="160">2 saat 40 dakika</option>
+                        <option value="170">2 saat 50 dakika</option>
+                        <option value="180">3 SAAT</option>
+                    </select>
+                </fieldset>
+                <br />
+               @* <div class="Participants">
+                    <span>Katılımcı</span>
+                    <input type="text" id="inputText" asp-for="@Model.Participants[0]">
+                    <br />
+
+                </div>*@
+@*                <button onclick="addParticipantTextBox()" style="background-color:orange">Katılımcı Ekle</button>
+*@
+                <label for="Date">Sınav Tarihi</label><br />
+                <input type="datetime-local" name="Date">
+                <br />
+                <br />
+
+                <input type="submit" id="submitButton" value="Sınav Oluştur">
+                
+            </form>
+
+            <hr width="50%" size="0">
+            <hr width="50%" size="0">
+            <hr width="50%" size="0">
+
+
+            @*<br />
+            <form method="post" asp-action="">
+            <label>Sınavın katılımcılarının mail adreslerini ekleyiniz - "Ekleme işlemini tek tek yapınız " </label> <br />
+            <input type="text" autocomplete="off" placeholder="Katılımcı Mail Adresi" name="inputValue" required />
+            <button type="submit"  class="btn btn-primary">Katılımcıyı Ekle </button>
+            </form>*@
+
+            @{
+                List<string> liste = new List<string>();
+            }
+
+
+
+
+
+
+        </div>
+
+
+
+        <div>
+            @await Html.PartialAsync("ExamParticipantsPartialView",liste)
+        </div>
+
+    </div>
+
+    <div id="div1">Bu adımdan sonra Soruları ekleyebilirsiniz.</div>
+
+
+
+</body>
+
+
+</html>
+
+<script>
+
+    $(document).ready(function () {
+        //$("#myButton").click(function () {
+        //    addParticipantTextBox();
+        //}); abi sorun nedir hemen çözeyim 
+        function addParticipantTextBox() {
+            $(".Participants").append("<span>Katılımcı</span> <input type='text' id = 'inputText' asp-for=`Model.Participants[${ab}]`> <br />");
+        }
+    });
+
+    //function addParticipantTextBox() {
+    //    $(".Participants").append("<input type='text' />");
+    //}
+
+</script>

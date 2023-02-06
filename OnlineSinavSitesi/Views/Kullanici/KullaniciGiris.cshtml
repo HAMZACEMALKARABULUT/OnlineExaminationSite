@@ -1,0 +1,63 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="tr">
+
+
+<head>
+    <p class="container">.</p>
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+        #container {
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            left: 60%;
+            top: 20%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+        
+        #uyari{
+            color:red;
+            
+
+            }
+
+        #arkaplan {
+            background: rgb(254,248,245);
+        }
+    </style>
+</head>
+<body id="arkaplan">
+
+    <div id="container" class="col-lg-17 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <form asp-action="KullaniciKontrol" asp-controller="Kullanici" method="post">
+           
+
+            <label for="name">Mail Adresi</label>
+            <input type="text" name="Mail" class="form-control" placeholder="Mail Adresiniz" /> <br />
+            <label for="name">Şifre</label>
+            <input type="password" name="Password" id="sifre" class="form-control" placeholder="Şifreniz" /> <br />
+            
+
+            <button class="btn">Giriş Yap</button>
+            @{
+                if (TempData["veri"]=="1")
+            {
+                        <label id="uyari">Kullanıcı bilgileri hatalı !!!</label>
+            }
+            }
+
+
+        </form>
+    </div>
+
+    <div class="col-lg-6 order-1 order-lg-2 hero-img">
+        <img src="~/Ninestars/img/hero-img.svg" class="img-fluid animated" alt="">
+    </div>
+</body>
+
+
+</html>
+

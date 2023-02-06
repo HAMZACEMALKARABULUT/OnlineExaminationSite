@@ -1,0 +1,113 @@
+﻿@model User 
+
+<!DOCTYPE html>
+<html lang="tr"> 
+
+<head>
+
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Ninestars/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Ninestars/assets/css/style.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body id="arkaplan">
+
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1 class="text-light">
+                    <a>
+                        <span>
+                            
+                                <h3>
+                                    @Model.Name  @Model.Surname
+                                </h3>
+                            
+                        </span>
+                    </a>
+                </h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <form>
+                <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Profil</a></li>
+                    <li><a class="nav-link scrollto active" asp-action="AddExamInfo" asp-controller="ExamMaker" id=@Model>Sınav Oluştur</a></li>
+
+                    <li><a class="nav-link scrollto active" href="#hero">Sınıf oluştur</a></li>
+                   
+
+
+
+                    <li class="dropdown">
+                        <a href="#"><span>Sınav bilgileri</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            
+                            <li class="dropdown">
+                                <a href="#"><span>Oluşturduğum Sınavlar</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Yaklaşan Sınavlar</a></li>
+                                    <li><a href="#">Geçmiş Sınavlarım</a></li>
+                                 
+                                </ul>
+                            </li>
+                          
+                            <li class="dropdown">
+                                <a href="#"><span>Dahil edildiğim sınavlar</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Yaklaşan Sınavlar</a></li>
+                                    <li><a href="#">Geçmiş Sınavlarım</a></li>
+                                    
+                                </ul>
+                            </li>
+
+
+
+                            <li class="dropdown">
+                                <a href="#"><span>Sınıflarım</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Yönettiğim sınıflar</a></li>
+                                    <li><a href="#">Bulunduğum sınıflar</a></li>
+
+                                </ul>
+                            </li>
+
+                            
+                        </ul>
+
+                    </li>
+                    
+                    <li><a class="nav-link scrollto" href="mailto:hamzacml456@gmail.com">Destek</a></li>
+                    <li><a class="getstarted scrollto" href="" >Sınava Katıl</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+            </form>
+        </div>
+    </header>
+
+
+
+
+
+</body>
+
+
+</html>
+

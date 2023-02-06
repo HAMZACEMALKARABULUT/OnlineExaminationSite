@@ -1,0 +1,200 @@
+﻿@model int
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+
+<head>
+
+
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var fileInput = document.getElementById("fileInput");
+            var file = fileInput.files[0];
+
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var data = event.target.result;
+                var formData = new FormData();
+                formData.append("file", data);
+
+                // Form verilerini sunucuya gönder
+                // ...
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Ninestars/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    
+    <style>
+
+        #div {
+            position: relative;
+            top: 72px;
+            height: 760px;
+            background: #cce1ff;
+            padding: 100px;
+        }
+
+        #div1 {
+            position: relative;
+            height: 75px;
+            background: #44A6C8;
+        }
+
+        #head {
+            height: 72px;
+            transition: all 0.5s;
+            z-index: 997;
+            transition: all 0.5s;
+            background: #44A6C8;
+        }
+
+            #head .logo h1 {
+                font-size: 30px;
+                margin: 0;
+                line-height: 1;
+                font-weight: 400;
+                letter-spacing: 2px;
+            }
+
+                #head .logo h1 a,
+                #head .logo h1 a:hover {
+                    color: #7a6960;
+                    text-decoration: none;
+                }
+
+            #head .logo img {
+                padding: 0;
+                margin: 0;
+                max-height: 40px;
+            }
+
+        #main {
+            margin-top: 72px;
+        }
+
+    </style>
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <!-- Vendor CSS Files -->
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+    <link href="~/Ninestars/assets/css/style.css" rel="stylesheet">
+    <link href="~/Ninestars/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body id="arkaplan">
+
+    <header id="head" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div>
+                <h1 class="text-light">
+                    <a>
+                        <span>
+
+                            <h5>
+                                Sınav Oluşturucu
+                            </h5>
+
+                        </span>
+                    </a>
+                </h1>
+
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active " href="">Soru Ekle </a></li>
+                    <li><a class="nav-link scrollto active" href="">Önceki Soru </a></li>
+                    <li><a class="nav-link scrollto active" href="">Sonraki Soru </a></li>
+                </ul>
+
+                </li>
+
+
+                <li><a class="getstarted scrollto" href="">BİTİR</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header>
+
+
+
+
+    <h4>Soruyu fotoğraf olarak ekleyin ya da kendiniz yazın.</h4>
+    <br /> 
+    <br />
+
+    <form id="form" asp-action="CreateQuestion" asp-controller="ExamMaker" method="post" role="form">
+        <input type="file" name="Image.FileName"  id="fileInput"/>
+        <input type="text" autocomplete="off" placeholder="Soru açıklaması girin" name="Description"  />
+
+        <input type="hidden" value="@Model" name="ExamId" />
+
+        <br />
+        <textarea type="text" name="Text" required placeholder="Soru Cümlesi" style="min-width: 100%;
+    min-height: 100px;"></textarea>
+
+
+
+        
+        <br />  <br />
+
+        <input type="text" autocomplete="off" placeholder="1. Seçenek" name="Options[0].Content"  />
+        <input type="checkbox" name="Options[0].isCorrect" value="true" >
+
+        <input type="text" autocomplete="off" placeholder="2. Seçenek" name="Options[1].Content"  />
+        <input type="checkbox" name="Options[1].isCorrect" value="true" >
+
+        <input type="text" autocomplete="off" placeholder="3. Seçenek" name="Options[2].Content" />
+        <input type="checkbox" name="Options[2].isCorrect" value="true" >
+
+        <input type="text" autocomplete="off" placeholder="4. Seçenek" name="Options[3].Content"  />
+        <input type="checkbox" name="Options[3].isCorrect" value="true" >
+
+        <input type="text" autocomplete="off" placeholder="5. Seçenek" name="Options[4].Content"  />
+        <input type="checkbox" name="Options[4].isCorrect" value="true" >
+
+        <input type="text" autocomplete="off" placeholder="6. Seçenek" name="Options[5].Content" />
+        <input type="checkbox" name="Options[5].isCorrect" value="true" >
+
+        <br />
+        <br />
+
+        <br />
+        <button type="submit" class="btn btn-primary">Soruyu ekleyin</button>
+
+        <p>Seçenekleri doldurmazsanız , soru  klasik olarak cevaplanacaktır.</p>
+
+    </form>
+
+
+</body>
+
+
+
+
+</html>
